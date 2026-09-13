@@ -699,3 +699,148 @@ p {
   font-size: 18px;
   font-weight: 600;
 }
+/* PREMIUM COLOR SYSTEM */
+
+:root {
+  --teal: #315968;
+  --teal-dark: #244652;
+  --sage: #9caf9a;
+  --sage-light: #e8eee7;
+  --cream: #f5f1e8;
+  --sand: #d9c8a9;
+  --white: #ffffff;
+  --black: #111111;
+}
+
+body {
+  background: #f7f7f5;
+}
+
+.contact-section {
+  background: var(--teal);
+}
+
+.contact-section .section-label {
+  color: var(--sand);
+}
+
+.contact-section h2,
+.contact-section .contact-text,
+.contact-section .contact-phone {
+  color: var(--white);
+}
+
+.contact-section .button {
+  background: var(--white);
+  color: var(--teal-dark);
+}
+
+.contact-section .button-secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.services-list > div,
+.service-card,
+.advantage-card {
+  border-color: #dfe5e1;
+}
+
+.section-label {
+  color: var(--teal);
+}
+
+h2 {
+  color: var(--teal-dark);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.service-card:hover,
+.advantage-card:hover {
+  border-color: var(--sage);
+  transform: translateY(-3px);
+}
+
+.pricing-section {
+  background: var(--cream);
+}
+
+.gallery-section {
+  background: var(--sage-light);
+}
+.how-it-works {
+  padding: 100px 6%;
+  background: var(--white);
+}
+
+.how-it-works .eyebrow {
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.how-it-works h2 {
+  max-width: 700px;
+  margin-bottom: 50px;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  padding: 36px;
+  background: var(--sage-light);
+  border: 1px solid #dfe5e1;
+  border-radius: 28px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--sage);
+}
+
+.step-number {
+  display: block;
+  margin-bottom: 45px;
+  color: var(--teal);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin-bottom: 16px;
+  color: var(--teal-dark);
+  font-size: 25px;
+}
+
+.step-card p {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .how-it-works {
+    padding: 70px 20px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    padding: 28px;
+  }
+}
