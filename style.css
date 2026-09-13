@@ -844,3 +844,71 @@ h2 {
     padding: 28px;
   }
 }
+.service-area {
+  padding: 100px 6%;
+  background: var(--teal);
+  color: var(--white);
+}
+
+.service-area-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service-area .eyebrow {
+  color: var(--sand);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.service-area h2 {
+  color: var(--white);
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 1;
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+
+.service-area p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.districts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 45px;
+}
+
+.districts span {
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  color: var(--white);
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.districts span:hover {
+  background: var(--white);
+  color: var(--teal-dark);
+}
+
+@media (max-width: 700px) {
+  .service-area {
+    padding: 70px 20px;
+  }
+
+  .districts {
+    gap: 8px;
+  }
+
+  .districts span {
+    padding: 10px 14px;
+  }
+}
