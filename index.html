@@ -89,6 +89,51 @@ Czysta przestrzeń.</h1>
         </div>
 
     </section>
+
+    <section class="process">
+  <div class="process-container">
+
+    <p class="eyebrow">JAK TO DZIAŁA?</p>
+
+    <h2>Prosto. Szybko. Bez komplikacji.</h2>
+
+    <div class="process-list">
+
+      <article class="process-card">
+        <span class="process-number">01</span>
+        <div>
+          <h3>Kontakt</h3>
+          <p>Napisz do nas lub zadzwoń i opowiedz, czego potrzebujesz.</p>
+        </div>
+      </article>
+
+      <article class="process-card">
+        <span class="process-number">02</span>
+        <div>
+          <h3>Wycena</h3>
+          <p>Ustalamy zakres prac i przygotowujemy indywidualną wycenę.</p>
+        </div>
+      </article>
+
+      <article class="process-card">
+        <span class="process-number">03</span>
+        <div>
+          <h3>Termin</h3>
+          <p>Wybieramy dogodny dla Ciebie termin sprzątania.</p>
+        </div>
+      </article>
+
+      <article class="process-card">
+        <span class="process-number">04</span>
+        <div>
+          <h3>Czysta przestrzeń</h3>
+          <p>Przyjeżdżamy i zajmujemy się resztą. Ty cieszysz się czystością.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 <section class="advantages">
 
     <p class="eyebrow">DLACZEGO MY?</p>
@@ -223,6 +268,83 @@ Czysta przestrzeń.</h1>
         zakresu prac i częstotliwości sprzątania.
     </p>
 
+<section class="calculator">
+  <div class="calculator-container">
+
+    <p class="eyebrow">SZYBKA WYCENA</p>
+
+    <h2>Sprawdź orientacyjny koszt sprzątania</h2>
+
+    <p class="calculator-intro">
+      Wybierz rodzaj przestrzeni i zakres usługi. Otrzymasz orientacyjną cenę.
+    </p>
+
+    <div class="calculator-box">
+
+      <div class="calculator-field">
+        <label for="cleaning-type">Rodzaj obiektu</label>
+        <select id="cleaning-type">
+          <option value="1">Mieszkanie</option>
+          <option value="1.2">Dom</option>
+          <option value="1.35">Biuro</option>
+        </select>
+      </div>
+
+      <div class="calculator-field">
+        <label for="area">Powierzchnia: <span id="area-value">50</span> m²</label>
+        <input
+          type="range"
+          id="area"
+          min="20"
+          max="300"
+          value="50"
+          step="5"
+        >
+      </div>
+
+      <div class="calculator-field">
+        <label for="frequency">Częstotliwość</label>
+        <select id="frequency">
+          <option value="1">Jednorazowo</option>
+          <option value="0.9">Co 2 tygodnie</option>
+          <option value="0.8">Co tydzień</option>
+        </select>
+      </div>
+
+      <div class="calculator-field">
+        <label>Dodatkowe usługi</label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" class="extra" value="50">
+          Mycie okien <span>+50 zł</span>
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" class="extra" value="80">
+          Piekarnik <span>+80 zł</span>
+        </label>
+
+        <label class="checkbox-row">
+          <input type="checkbox" class="extra" value="60">
+          Lodówka <span>+60 zł</span>
+        </label>
+      </div>
+
+      <div class="calculator-result">
+        <span>Orientacyjna cena</span>
+        <strong id="price">120 zł</strong>
+        <small>
+          Ostateczna cena zależy od zakresu prac i stanu pomieszczenia.
+        </small>
+      </div>
+
+      <a href="#kontakt" class="calculator-button">
+        Zapytaj o dokładną wycenę
+      </a>
+
+    </div>
+  </div>
+</section>
 </section>
 <section class="gallery">
 
@@ -333,7 +455,7 @@ Czysta przestrzeń.</h1>
 <a href="https://wa.me/48690214377" class="button button-outline">
     Napisz wiadomość
 </a>
-        
+
 
     </div>
 
@@ -346,7 +468,7 @@ Czysta przestrzeń.</h1>
     </div>
 
     <div class="footer-contact">
-        <a href="tel:+48690214377">+48 690 214 377</a>
+        <a href="tel:+48690214377">+48&nbsp;690&nbsp;214&nbsp;377</a>
         <a href="https://wa.me/48690214377">WhatsApp</a>
     </div>
 
@@ -355,7 +477,48 @@ Czysta przestrzeń.</h1>
     </div>
 
 </footer>
+<script>
+  const area = document.getElementById("area");
+  const areaValue = document.getElementById("area-value");
+  const type = document.getElementById("cleaning-type");
+  const frequency = document.getElementById("frequency");
+  const price = document.getElementById("price");
+  const extras = document.querySelectorAll(".extra");
 
+  function calculatePrice() {
+    const basePrice = 120;
+    const areaMultiplier = Number(area.value) / 50;
+    const typeMultiplier = Number(type.value);
+    const frequencyMultiplier = Number(frequency.value);
+
+    let total =
+      basePrice *
+      areaMultiplier *
+      typeMultiplier *
+      frequencyMultiplier;
+
+    extras.forEach(extra => {
+      if (extra.checked) {
+        total += Number(extra.value);
+      }
+    });
+
+    total = Math.round(total / 10) * 10;
+
+    areaValue.textContent = area.value;
+    price.textContent = total + " zł";
+  }
+
+  area.addEventListener("input", calculatePrice);
+  type.addEventListener("change", calculatePrice);
+  frequency.addEventListener("change", calculatePrice);
+
+  extras.forEach(extra => {
+    extra.addEventListener("change", calculatePrice);
+  });
+
+  calculatePrice();
+</script>
 </body>
 
 </html>
