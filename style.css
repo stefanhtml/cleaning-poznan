@@ -652,3 +652,50 @@ p {
     box-sizing: border-box;
   }
 }
+/* CONTACT */
+.contact-section {
+  padding: 120px 24px;
+  background: #f4f4f1;
+}
+
+.contact-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section .section-label {
+  margin-bottom: 24px;
+}
+
+.contact-section h2 {
+  margin: 0 0 24px;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.contact-text {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.contact-buttons .button {
+  min-width: 220px;
+}
+
+.contact-phone {
+  margin-top: 28px;
+  font-size: 18px;
+  font-weight: 600;
+}
